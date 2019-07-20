@@ -1,5 +1,5 @@
 const server = () => {
-    console.log('hello world')
-}
+  console.log('hello world');
+};
 
-server()
+server();
