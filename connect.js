@@ -2,7 +2,10 @@ import mongoos from 'mongoose'
 import config from './config'
 
 let {username,password,baseUrl,port,dbName} = config
-mongoos.connect(`mongodb://${username}:${password}@${baseUrl}:${port}/${dbName}`, { useNewUrlParser: true });
+mongoos.connect(
+    `mongodb://${username}:${password}@${baseUrl}:${port}/${dbName}`, 
+    { useNewUrlParser: true }
+);
 mongoos.connection
 .once('open', () => {
     console.log('connect mongodb complete')
