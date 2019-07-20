@@ -1,5 +1,8 @@
-const server = () => {
-  console.log('hello world');
-};
+import express from 'express'
 
-server();
+const app = express()
+const PORT = 3000;
+
+app.listen(PORT,()=>{
+  console.log(`server start port ${PORT}`)
+})
