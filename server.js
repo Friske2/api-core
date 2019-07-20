@@ -6,6 +6,18 @@ import './connect'
 const app = express()
 const PORT = process.env.PORT || 3000;
 
+// setup bodyParser
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
+
+// setup Access-Control
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
+  next();
+});
+
 // setup route 
 const APP_DIR = `${__dirname}/src/routes`
 const features = fs.readdirSync(APP_DIR).filter(
@@ -18,18 +30,6 @@ features.forEach(features => {
     routes.setup(router)
     app.use(`/${path}`, router)
 })
-
-// setup bodyParser
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true }))
-
-// setup Access-Control
-app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
-  next();
-});
 
 app.listen(PORT,()=>{
   console.log(`server start port ${PORT}`)
