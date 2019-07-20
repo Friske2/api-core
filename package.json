@@ -1,0 +1,24 @@
+{
+  "name": "api-core",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "babel-node server.js --presets env"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MrRask/api-core.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MrRask/api-core/issues"
+  },
+  "homepage": "https://github.com/MrRask/api-core#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0"
+  }
+}
