@@ -19,16 +19,16 @@ app.use(function (req, res, next) {
 });
 
 // setup route 
-const APP_DIR = `${__dirname}/src/routes`
+const APP_DIR = `${__dirname}/src/features`
 const features = fs.readdirSync(APP_DIR).filter(
-    file => fs.statSync(`${APP_DIR}`)
+    file => fs.statSync(`${APP_DIR}/${file}`).isDirectory()
 )
+console.log(features)
 features.forEach(features => {
     const router = express.Router()
-    const routes = require(`${APP_DIR}/${features}`)
-    let path = features.split('.js')[0]
+    const routes = require(`${APP_DIR}/${features}/routes.js`)
     routes.setup(router)
-    app.use(`/${path}`, router)
+    app.use(`/${features}`, router)
 })
 
 app.listen(PORT,()=>{

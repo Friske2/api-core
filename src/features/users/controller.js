@@ -1,4 +1,4 @@
-import model from '../model/users'
+import model from './model'
 const UsersController = {
     getAll(req,res) {
         model.find()
