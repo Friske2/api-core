@@ -4,7 +4,7 @@ import fs from 'fs';
 import './connect';
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 const baseUrl = `/api/v1`;
 
 // setup bodyParser
@@ -30,6 +30,7 @@ app.use(function(error, req, res, next) {
     next();
   }
 });
+
 // setup route
 const APP_DIR = `${__dirname}/src/app`;
 const features = fs
