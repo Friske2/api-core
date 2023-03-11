@@ -1,7 +1,7 @@
 const config = {
   username: 'root',
   password: 'P@ssw0rd',
-  baseUrl: '159.65.4.14',
+  baseUrl: 'localhost',
   port: '2277',
   dbName: 'test_db'
 };
